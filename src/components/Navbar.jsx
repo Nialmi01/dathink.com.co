@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import Logo from '../assets/logo.jpg';
 import './../index.css';
@@ -42,9 +43,15 @@ const Navbar = () => {
                 <ul className="hidden md:flex" style={{ display: 'flex', gap: '2rem', alignItems: 'center' }}>
                     {navLinks.map((link) => (
                         <li key={link.name}>
-                            <a href={link.href} style={{ fontWeight: '500', fontSize: '1rem' }} className="hover:text-primary transition-colors">
-                                {link.name}
-                            </a>
+                            {link.href === '/allies' ? (
+                                <Link to={link.href} style={{ fontWeight: '500', fontSize: '1rem' }} className="hover:text-primary transition-colors">
+                                    {link.name}
+                                </Link>
+                            ) : (
+                                <a href={link.href} style={{ fontWeight: '500', fontSize: '1rem' }} className="hover:text-primary transition-colors">
+                                    {link.name}
+                                </a>
+                            )}
                         </li>
                     ))}
                     <li>
@@ -78,13 +85,23 @@ const Navbar = () => {
                         <ul style={{ display: 'flex', flexDirection: 'column', gap: '2rem', textAlign: 'center' }}>
                             {navLinks.map((link) => (
                                 <li key={link.name}>
-                                    <a
-                                        href={link.href}
-                                        style={{ fontSize: '1.5rem', fontWeight: '600' }}
-                                        onClick={() => setIsOpen(false)}
-                                    >
-                                        {link.name}
-                                    </a>
+                                    {link.href === '/allies' ? (
+                                        <Link
+                                            to={link.href}
+                                            style={{ fontSize: '1.5rem', fontWeight: '600' }}
+                                            onClick={() => setIsOpen(false)}
+                                        >
+                                            {link.name}
+                                        </Link>
+                                    ) : (
+                                        <a
+                                            href={link.href}
+                                            style={{ fontSize: '1.5rem', fontWeight: '600' }}
+                                            onClick={() => setIsOpen(false)}
+                                        >
+                                            {link.name}
+                                        </a>
+                                    )}
                                 </li>
                             ))}
                             <li>
