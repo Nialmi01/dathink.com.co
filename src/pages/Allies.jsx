@@ -1,5 +1,6 @@
 import { FaBuilding, FaAws, FaGoogle, FaMicrosoft, FaSlack } from 'react-icons/fa';
 import { motion } from 'framer-motion';
+import frutymaxLogo from '../assets/frutymax_logo.png';
 
 const Allies = () => {
     const partners = [
@@ -8,9 +9,16 @@ const Allies = () => {
         { name: 'InnovateX', icon: FaGoogle },
         { name: 'SoftSystems', icon: FaMicrosoft },
         { name: 'ConnectHub', icon: FaSlack },
+        { name: 'FrutyMax', icon: frutymaxLogo },
     ];
 
     const testimonials = [
+        {
+            name: "FrutyMax",
+            role: "Despulpadora de Fruta",
+            text: "Gracias a estas soluciones, logramos optimizar nuestros procesos internos, mejorar el control operativo y aumentar la visibilidad de la marca en canales digitales. Destacamos el profesionalismo, la atención al detalle y el acompañamiento constante de Dathink.",
+            rating: 5
+        },
         {
             name: "Carlos Rodriguez",
             role: "CEO, FinTech Colombia",
@@ -59,7 +67,11 @@ const Allies = () => {
                                 style={{ textAlign: 'center', fontSize: '4rem', color: 'var(--text-muted)', opacity: 0.7 }}
                                 whileHover={{ scale: 1.1, color: 'var(--primary)', opacity: 1 }}
                             >
-                                <partner.icon />
+                                {typeof partner.icon === 'string' ? (
+                                    <img src={partner.icon} alt={partner.name} style={{ height: '1em', objectFit: 'contain' }} />
+                                ) : (
+                                    <partner.icon />
+                                )}
                                 <p style={{ fontSize: '0.9rem', marginTop: '0.5rem', fontWeight: '600' }}>{partner.name}</p>
                             </motion.div>
                         ))}
