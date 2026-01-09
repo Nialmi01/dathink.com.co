@@ -1,10 +1,12 @@
 import { FaBuilding, FaAws, FaGoogle, FaMicrosoft, FaSlack } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import frutymaxLogo from '../assets/frutymax_logo.png';
+import tecnicarLogo from '../assets/tecnicar_logo.png';
 
 const Allies = () => {
     const partners = [
         { name: 'FrutyMax', icon: frutymaxLogo },
+        { name: 'Tecnicar Autoservices', icon: tecnicarLogo },
     ];
 
     const testimonials = [
@@ -12,6 +14,12 @@ const Allies = () => {
             name: "FrutyMax",
             role: "Despulpadora de Fruta",
             text: "Gracias a estas soluciones, logramos optimizar nuestros procesos internos, mejorar el control operativo y aumentar la visibilidad de la marca en canales digitales. Destacamos el profesionalismo, la atención al detalle y el acompañamiento constante de Dathink.",
+            rating: 5
+        },
+        {
+            name: "Tecnicar Autoservices",
+            role: "Taller Automotriz",
+            text: "Tecnicar Autoservices, taller automotriz en República Dominicana, confió en Dathink para digitalizar su proceso de ingreso de vehículos al taller. A través de una solución tecnológica personalizada, se optimizó el registro de vehículos, el control de la información y la trazabilidad de cada servicio desde el primer contacto con el cliente.\n\nEsta digitalización permitió reducir errores operativos, agilizar la atención y mejorar la organización interna del taller. Destacamos el enfoque práctico, la comprensión de nuestras necesidades y el acompañamiento profesional de Dathink, consolidándose como un aliado estratégico en la modernización de nuestros procesos",
             rating: 5
         }
     ];
