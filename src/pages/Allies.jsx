@@ -4,11 +4,6 @@ import frutymaxLogo from '../assets/frutymax_logo.png';
 
 const Allies = () => {
     const partners = [
-        { name: 'TechSolutions Inc', icon: FaBuilding },
-        { name: 'Cloud Corp', icon: FaAws },
-        { name: 'InnovateX', icon: FaGoogle },
-        { name: 'SoftSystems', icon: FaMicrosoft },
-        { name: 'ConnectHub', icon: FaSlack },
         { name: 'FrutyMax', icon: frutymaxLogo },
     ];
 
@@ -18,24 +13,6 @@ const Allies = () => {
             role: "Despulpadora de Fruta",
             text: "Gracias a estas soluciones, logramos optimizar nuestros procesos internos, mejorar el control operativo y aumentar la visibilidad de la marca en canales digitales. Destacamos el profesionalismo, la atención al detalle y el acompañamiento constante de Dathink.",
             rating: 5
-        },
-        {
-            name: "Carlos Rodriguez",
-            role: "CEO, FinTech Colombia",
-            text: "La transformación digital que logramos con Dathink fue impresionante. Sus agentes de IA redujeron nuestros tiempos de respuesta en un 60%.",
-            rating: 5
-        },
-        {
-            name: "Ana Martinez",
-            role: "Directora de Operaciones, Logística Global",
-            text: "El dashboard de BI que implementaron nos dio visibilidad total de nuestra cadena de suministro. Un socio estratégico indispensable.",
-            rating: 5
-        },
-        {
-            name: "Felipe Gomez",
-            role: "Gerente de Marketing, Retail Plus",
-            text: "Gracias a su estrategia de datos, nuestras campañas de marketing ahora tienen un ROI del 200%. Profesionales y efectivos.",
-            rating: 4
         }
     ];
 
