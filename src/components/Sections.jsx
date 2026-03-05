@@ -72,11 +72,16 @@ export const Contact = () => {
 
         const form = e.target;
         const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
 
         try {
             const response = await fetch("https://formsubmit.co/ajax/comercial@dathink.com.co", {
                 method: "POST",
-                body: formData
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(data)
             });
 
             if (response.ok) {
