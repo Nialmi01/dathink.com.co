@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import AboutImg from '../assets/ai_agents.png';
 
 // About.jsx
@@ -63,77 +62,29 @@ export const About = () => {
 };
 
 // Contact.jsx
-export const Contact = () => {
-    const [status, setStatus] = useState(''); // '', 'loading', 'success', 'error'
+export const Contact = () => (
+    <section id="contact" className="section-padding" style={{ background: 'linear-gradient(to top, #000, transparent)' }}>
+        <div className="container" style={{ textAlign: 'center', maxWidth: '700px' }}>
+            <h2 style={{ fontSize: '2.5rem', fontWeight: 'bold', marginBottom: '1rem' }}>Empecemos un Proyecto</h2>
+            <p style={{ marginBottom: '3rem', color: 'var(--text-muted)' }}>Cuéntanos tu idea y la llevaremos al siguiente nivel.</p>
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        setStatus('loading');
+            <form action="https://formsubmit.co/comercial@dathink.com.co" method="POST" className="glass" style={{ padding: '3rem', borderRadius: '20px', textAlign: 'left', display: 'grid', gap: '1.5rem' }}>
+                <input type="hidden" name="_subject" value="Nuevo mensaje desde la web Dathink!" />
+                <input type="hidden" name="_autoresponse" value="¡Hola! Gracias por contactar a Dathink. Confirmamos la recepción de tu mensaje. En breve, un miembro de nuestro equipo consultor revisará tu solicitud y se comunicará contigo para brindarte atención personalizada y dar el siguiente paso en tu transformación digital." />
+                <input type="hidden" name="_template" value="table" />
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_next" value="https://dathink.com.co/gracias" />
 
-        const form = e.target;
-        const formData = new FormData(form);
-        const data = Object.fromEntries(formData.entries());
-
-        try {
-            const response = await fetch("https://formsubmit.co/ajax/comercial@dathink.com.co", {
-                method: "POST",
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: JSON.stringify(data)
-            });
-
-            if (response.ok) {
-                setStatus('success');
-                form.reset();
-            } else {
-                setStatus('error');
-            }
-        } catch (error) {
-            setStatus('error');
-        }
-    };
-
-    return (
-        <section id="contact" className="section-padding" style={{ background: 'linear-gradient(to top, #000, transparent)' }}>
-            <div className="container" style={{ textAlign: 'center', maxWidth: '700px' }}>
-                <h2 style={{ fontSize: '2.5rem', fontWeight: 'bold', marginBottom: '1rem' }}>Empecemos un Proyecto</h2>
-                <p style={{ marginBottom: '3rem', color: 'var(--text-muted)' }}>Cuéntanos tu idea y la llevaremos al siguiente nivel.</p>
-
-                {status === 'success' ? (
-                    <div className="glass" style={{ padding: '3rem', borderRadius: '20px', textAlign: 'center', background: 'rgba(34, 197, 94, 0.1)', border: '1px solid rgba(34, 197, 94, 0.2)' }}>
-                        <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>✅</div>
-                        <h3 style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#fff', marginBottom: '0.5rem' }}>¡Mensaje Enviado Correctamente!</h3>
-                        <p style={{ color: 'var(--text-muted)' }}>Gracias por contactarnos. Nuestro equipo comercial ha recibido tu mensaje y se comunicará contigo muy pronto.</p>
-                        <button onClick={() => setStatus('')} className="btn" style={{ marginTop: '1.5rem', background: 'rgba(255,255,255,0.1)', color: '#fff' }}>Enviar otro mensaje</button>
-                    </div>
-                ) : (
-                    <form onSubmit={handleSubmit} className="glass" style={{ padding: '3rem', borderRadius: '20px', textAlign: 'left', display: 'grid', gap: '1.5rem' }}>
-                        <input type="hidden" name="_subject" value="Nuevo mensaje desde la web Dathink!" />
-                        <input type="hidden" name="_autoresponse" value="¡Hola! Gracias por contactar a Dathink. Confirmamos la recepción de tu mensaje. En breve, un miembro de nuestro equipo consultor revisará tu solicitud y se comunicará contigo para brindarte atención personalizada y dar el siguiente paso en tu transformación digital." />
-                        <input type="hidden" name="_template" value="table" />
-                        <input type="hidden" name="_captcha" value="false" />
-
-                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
-                            <input type="text" name="name" required placeholder="Nombre" style={{ width: '100%', padding: '1rem', background: 'rgba(255,255,255,0.05)', border: '1px solid var(--glass-border)', color: '#fff', borderRadius: '10px' }} />
-                            <input type="email" name="email" required placeholder="Email" style={{ width: '100%', padding: '1rem', background: 'rgba(255,255,255,0.05)', border: '1px solid var(--glass-border)', color: '#fff', borderRadius: '10px' }} />
-                        </div>
-                        <textarea name="message" required placeholder="Mensaje" rows="4" style={{ width: '100%', padding: '1rem', background: 'rgba(255,255,255,0.05)', border: '1px solid var(--glass-border)', color: '#fff', borderRadius: '10px' }}></textarea>
-
-                        <button type="submit" className="btn btn-primary" style={{ width: '100%', opacity: status === 'loading' ? 0.7 : 1 }} disabled={status === 'loading'}>
-                            {status === 'loading' ? 'Enviando...' : 'Enviar Mensaje'}
-                        </button>
-
-                        {status === 'error' && (
-                            <p style={{ color: '#ef4444', textAlign: 'center', fontSize: '0.9rem' }}>Hubo un error al enviar el mensaje. Por favor, intenta de nuevo.</p>
-                        )}
-                    </form>
-                )}
-            </div>
-        </section>
-    );
-};
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
+                    <input type="text" name="name" required placeholder="Nombre" style={{ width: '100%', padding: '1rem', background: 'rgba(255,255,255,0.05)', border: '1px solid var(--glass-border)', color: '#fff', borderRadius: '10px' }} />
+                    <input type="email" name="email" required placeholder="Email" style={{ width: '100%', padding: '1rem', background: 'rgba(255,255,255,0.05)', border: '1px solid var(--glass-border)', color: '#fff', borderRadius: '10px' }} />
+                </div>
+                <textarea name="message" required placeholder="Mensaje" rows="4" style={{ width: '100%', padding: '1rem', background: 'rgba(255,255,255,0.05)', border: '1px solid var(--glass-border)', color: '#fff', borderRadius: '10px' }}></textarea>
+                <button type="submit" className="btn btn-primary" style={{ width: '100%' }}>Enviar Mensaje</button>
+            </form>
+        </div>
+    </section>
+);
 
 import { Link } from 'react-router-dom';
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa';

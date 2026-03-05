@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import ServiceDetail from './pages/ServiceDetail';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import Allies from './pages/Allies';
+import ThankYou from './pages/ThankYou';
 
 // Scroll to top helper
 const ScrollToTop = () => {
@@ -27,6 +28,7 @@ function App() {
           <Route path="/service/:id" element={<ServiceDetail />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/allies" element={<Allies />} /> {/* Added route */}
+          <Route path="/gracias" element={<ThankYou />} />
         </Routes>
         <Footer />
       </div>
