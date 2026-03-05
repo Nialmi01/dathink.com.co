@@ -69,13 +69,19 @@ export const Contact = () => (
             <h2 style={{ fontSize: '2.5rem', fontWeight: 'bold', marginBottom: '1rem' }}>Empecemos un Proyecto</h2>
             <p style={{ marginBottom: '3rem', color: 'var(--text-muted)' }}>Cuéntanos tu idea y la llevaremos al siguiente nivel.</p>
 
-            <form className="glass" style={{ padding: '3rem', borderRadius: '20px', textAlign: 'left', display: 'grid', gap: '1.5rem' }}>
+            <form action="https://formsubmit.co/contacto@dathink.com" method="POST" className="glass" style={{ padding: '3rem', borderRadius: '20px', textAlign: 'left', display: 'grid', gap: '1.5rem' }}>
+                <input type="hidden" name="_subject" value="Nuevo mensaje desde la web Dathink!" />
+                <input type="hidden" name="_autoresponse" value="¡Hola! Gracias por contactar a Dathink. Hemos recibido tu mensaje y nuestro equipo se pondrá en contacto contigo muy pronto." />
+                <input type="hidden" name="_template" value="table" />
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_next" value={window.location.href} />
+
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
-                    <input type="text" placeholder="Nombre" style={{ width: '100%', padding: '1rem', background: 'rgba(255,255,255,0.05)', border: '1px solid var(--glass-border)', color: '#fff', borderRadius: '10px' }} />
-                    <input type="email" placeholder="Email" style={{ width: '100%', padding: '1rem', background: 'rgba(255,255,255,0.05)', border: '1px solid var(--glass-border)', color: '#fff', borderRadius: '10px' }} />
+                    <input type="text" name="name" required placeholder="Nombre" style={{ width: '100%', padding: '1rem', background: 'rgba(255,255,255,0.05)', border: '1px solid var(--glass-border)', color: '#fff', borderRadius: '10px' }} />
+                    <input type="email" name="email" required placeholder="Email" style={{ width: '100%', padding: '1rem', background: 'rgba(255,255,255,0.05)', border: '1px solid var(--glass-border)', color: '#fff', borderRadius: '10px' }} />
                 </div>
-                <textarea placeholder="Mensaje" rows="4" style={{ width: '100%', padding: '1rem', background: 'rgba(255,255,255,0.05)', border: '1px solid var(--glass-border)', color: '#fff', borderRadius: '10px' }}></textarea>
-                <button className="btn btn-primary" style={{ width: '100%' }}>Enviar Mensaje</button>
+                <textarea name="message" required placeholder="Mensaje" rows="4" style={{ width: '100%', padding: '1rem', background: 'rgba(255,255,255,0.05)', border: '1px solid var(--glass-border)', color: '#fff', borderRadius: '10px' }}></textarea>
+                <button type="submit" className="btn btn-primary" style={{ width: '100%' }}>Enviar Mensaje</button>
             </form>
         </div>
     </section>
