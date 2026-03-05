@@ -69,7 +69,7 @@ export const Contact = () => (
             <h2 style={{ fontSize: '2.5rem', fontWeight: 'bold', marginBottom: '1rem' }}>Empecemos un Proyecto</h2>
             <p style={{ marginBottom: '3rem', color: 'var(--text-muted)' }}>Cuéntanos tu idea y la llevaremos al siguiente nivel.</p>
 
-            <form action="https://formsubmit.co/contacto@dathink.com" method="POST" className="glass" style={{ padding: '3rem', borderRadius: '20px', textAlign: 'left', display: 'grid', gap: '1.5rem' }}>
+            <form action="https://formsubmit.co/comercial@dathink.com.co" method="POST" className="glass" style={{ padding: '3rem', borderRadius: '20px', textAlign: 'left', display: 'grid', gap: '1.5rem' }}>
                 <input type="hidden" name="_subject" value="Nuevo mensaje desde la web Dathink!" />
                 <input type="hidden" name="_autoresponse" value="¡Hola! Gracias por contactar a Dathink. Hemos recibido tu mensaje y nuestro equipo se pondrá en contacto contigo muy pronto." />
                 <input type="hidden" name="_template" value="table" />
