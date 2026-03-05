@@ -73,7 +73,7 @@ export const Contact = () => (
                 <input type="hidden" name="_autoresponse" value="¡Hola! Gracias por contactar a Dathink. Confirmamos la recepción de tu mensaje. En breve, un miembro de nuestro equipo consultor revisará tu solicitud y se comunicará contigo para brindarte atención personalizada y dar el siguiente paso en tu transformación digital." />
                 <input type="hidden" name="_template" value="table" />
                 <input type="hidden" name="_captcha" value="false" />
-                <input type="hidden" name="_next" value="https://dathink.com.co/gracias" />
+                <input type="hidden" name="_next" value="https://www.dathink.com.co/gracias" />
 
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1.5rem' }}>
                     <input type="text" name="name" required placeholder="Nombre" style={{ width: '100%', padding: '1rem', background: 'rgba(255,255,255,0.05)', border: '1px solid var(--glass-border)', color: '#fff', borderRadius: '10px' }} />
