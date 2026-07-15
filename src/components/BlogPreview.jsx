@@ -1,57 +1,8 @@
-const articles = [
-    {
-        slug: 'automatizar-atencion-cliente-whatsapp',
-        title: 'Cómo automatizar la atención al cliente con WhatsApp',
-        excerpt: 'Aprende a implementar bots de WhatsApp para responder clientes 24/7 sin aumentar tu equipo.',
-        category: 'Automatización',
-        color: '#25D366',
-        readTime: '5 min',
-    },
-    {
-        slug: '5-procesos-toda-empresa-deberia-automatizar',
-        title: '5 procesos que toda empresa debería automatizar en 2025',
-        excerpt: 'Desde el seguimiento de leads hasta la facturación: los 5 procesos donde la automatización genera más ROI.',
-        category: 'IA para Empresas',
-        color: '#00d4ff',
-        readTime: '7 min',
-    },
-    {
-        slug: 'reducir-costos-operativos-ia',
-        title: 'Cómo reducir costos operativos con inteligencia artificial',
-        excerpt: 'Casos reales de empresas colombianas que redujeron costos hasta un 60% implementando IA en sus procesos.',
-        category: 'Transformación Digital',
-        color: '#a855f7',
-        readTime: '6 min',
-    },
-    {
-        slug: 'software-a-medida-vs-software-generico',
-        title: 'Software a medida vs. software genérico: ¿cuál conviene más a tu PYME?',
-        excerpt: 'Análisis honesto de cuándo vale la pena invertir en desarrollo personalizado y cuándo no.',
-        category: 'Software',
-        color: '#f59e0b',
-        readTime: '8 min',
-    },
-    {
-        slug: 'chatbot-vs-agente-ia',
-        title: 'Chatbot básico vs. Agente de IA: diferencias clave para tu negocio',
-        excerpt: 'No todos los bots son iguales. Te explicamos cuándo necesitas un agente de IA avanzado.',
-        category: 'Inteligencia Artificial',
-        color: '#ec4899',
-        readTime: '5 min',
-    },
-    {
-        slug: 'dashboard-bi-pymes-colombia',
-        title: 'Por qué tu PYME necesita un dashboard de BI en 2025',
-        excerpt: 'Visualizar tus datos en tiempo real puede transformar la toma de decisiones de tu empresa.',
-        category: 'Análisis de Datos',
-        color: '#3b82f6',
-        readTime: '6 min',
-    },
-];
+import { Link } from 'react-router-dom';
+import { blogArticles } from '../data/blog';
+import { buildWhatsAppUrl } from '../data/site';
 
-const WHATSAPP_NUMBER = '573151221814';
-const WHATSAPP_MESSAGE = encodeURIComponent('Hola, me gustaría recibir el blog de Dathink y agendar una asesoría gratuita.');
-const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MESSAGE}`;
+const WHATSAPP_URL = buildWhatsAppUrl('Hola, me gustaria recibir el blog de Dathink y agendar una asesoria gratuita.');
 
 export const BlogPreview = () => (
     <section id="blog" className="section-padding" style={{ background: 'rgba(0,212,255,0.02)' }}>
@@ -66,7 +17,7 @@ export const BlogPreview = () => (
             </div>
 
             <div className="grid-auto-fit">
-                {articles.map((a, i) => (
+                {blogArticles.map((a, i) => (
                     <article key={i} className="glass" style={{
                         padding: '1.75rem',
                         borderRadius: '18px',
@@ -91,11 +42,11 @@ export const BlogPreview = () => (
                             {a.title}
                         </h3>
                         <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: 1.6, flex: 1 }}>
-                            {a.excerpt}
+                            {a.description}
                         </p>
-                        <span style={{ color: a.color, fontWeight: '600', fontSize: '0.85rem' }}>
+                        <Link to={`/blog/${a.slug}`} style={{ color: a.color, fontWeight: '600', fontSize: '0.85rem' }}>
                             Leer artículo →
-                        </span>
+                        </Link>
                     </article>
                 ))}
             </div>

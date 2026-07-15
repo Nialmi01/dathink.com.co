@@ -2,6 +2,8 @@ import { useParams, Link, Navigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FaArrowLeft, FaCheckCircle } from 'react-icons/fa';
 import { servicesData } from '../data/services';
+import { SEO } from '../components/SEO';
+import { SITE_URL } from '../data/site';
 
 const ServiceDetail = () => {
     const { id } = useParams();
@@ -12,9 +14,34 @@ const ServiceDetail = () => {
     }
 
     const Icon = service.icon;
+    const path = `/service/${service.id}`;
+    const serviceSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'Service',
+        name: service.seoTitle || service.title,
+        description: service.metaDescription || service.longDesc,
+        provider: {
+            '@type': 'Organization',
+            name: 'Dathink',
+            url: SITE_URL,
+        },
+        areaServed: {
+            '@type': 'Country',
+            name: 'Colombia',
+        },
+        serviceType: service.title,
+        url: `${SITE_URL}${path}`,
+    };
 
     return (
         <div style={{ paddingTop: '100px', minHeight: '100vh', background: 'var(--bg-dark)' }}>
+            <SEO
+                title={service.metaTitle || `${service.title} para Empresas en Colombia`}
+                description={service.metaDescription || service.desc}
+                path={path}
+                keywords={service.keywords || []}
+                schemas={[serviceSchema]}
+            />
             <div className="container">
                 <Link to="/" className="btn glass" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginBottom: '2rem', color: 'var(--text-muted)' }}>
                     <FaArrowLeft /> Volver al Inicio

@@ -1,7 +1,8 @@
 import { FaBuilding, FaAws, FaGoogle, FaMicrosoft, FaSlack } from 'react-icons/fa';
 import { motion } from 'framer-motion';
-import frutymaxLogo from '../assets/frutymax_logo.png';
-import tecnicarLogo from '../assets/tecnicar_logo.png';
+import frutymaxLogo from '../assets/frutymax_logo.webp';
+import tecnicarLogo from '../assets/tecnicar_logo.webp';
+import { SEO } from '../components/SEO';
 
 const Allies = () => {
     const partners = [
@@ -26,6 +27,12 @@ const Allies = () => {
 
     return (
         <div style={{ paddingTop: '80px', minHeight: '100vh' }}>
+            <SEO
+                title="Aliados y Casos de Exito de Automatizacion"
+                description="Conoce empresas que han trabajado con Dathink para digitalizar procesos, mejorar trazabilidad y optimizar operaciones."
+                path="/allies"
+                keywords={["casos de exito automatizacion", "aliados Dathink", "transformacion digital empresas"]}
+            />
             {/* Header */}
             <section className="section-padding text-center">
                 <div className="container">

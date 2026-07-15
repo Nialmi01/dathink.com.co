@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import AboutImg from '../assets/ai_agents.png';
+import AboutImg from '../assets/ai_agents.webp';
 
 // About.jsx
 export const About = () => {
@@ -88,7 +88,7 @@ export const Contact = () => {
             } else {
                 setStatus('error');
             }
-        } catch (error) {
+        } catch {
             setStatus('error');
         }
     };
@@ -136,10 +136,10 @@ import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa';
 export const Footer = () => (
     <footer style={{ padding: '3rem 0', borderTop: '1px solid var(--glass-border)', textAlign: 'center', color: 'var(--text-muted)', fontSize: '0.9rem' }}>
         <div style={{ display: 'flex', justifyContent: 'center', gap: '1.5rem', marginBottom: '1.5rem' }}>
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-main)', fontSize: '1.5rem', transition: 'color 0.3s' }} className="hover:text-primary"><FaFacebook /></a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-main)', fontSize: '1.5rem', transition: 'color 0.3s' }} className="hover:text-primary"><FaTwitter /></a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-main)', fontSize: '1.5rem', transition: 'color 0.3s' }} className="hover:text-primary"><FaInstagram /></a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-main)', fontSize: '1.5rem', transition: 'color 0.3s' }} className="hover:text-primary"><FaLinkedin /></a>
+            <a href="https://www.facebook.com/dathink" target="_blank" rel="noopener noreferrer" aria-label="Dathink en Facebook" style={{ color: 'var(--text-main)', fontSize: '1.5rem', transition: 'color 0.3s' }} className="hover:text-primary"><FaFacebook /></a>
+            <a href="https://x.com/dathink" target="_blank" rel="noopener noreferrer" aria-label="Dathink en X" style={{ color: 'var(--text-main)', fontSize: '1.5rem', transition: 'color 0.3s' }} className="hover:text-primary"><FaTwitter /></a>
+            <a href="https://www.instagram.com/dathink" target="_blank" rel="noopener noreferrer" aria-label="Dathink en Instagram" style={{ color: 'var(--text-main)', fontSize: '1.5rem', transition: 'color 0.3s' }} className="hover:text-primary"><FaInstagram /></a>
+            <a href="https://www.linkedin.com/company/dathink" target="_blank" rel="noopener noreferrer" aria-label="Dathink en LinkedIn" style={{ color: 'var(--text-main)', fontSize: '1.5rem', transition: 'color 0.3s' }} className="hover:text-primary"><FaLinkedin /></a>
         </div>
         <p style={{ marginBottom: '1rem' }}>&copy; {new Date().getFullYear()} Dathink. Todos los derechos reservados.</p>
         <Link to="/privacy" style={{ color: 'var(--primary)', textDecoration: 'none', fontSize: '0.85rem' }}>

@@ -1,8 +1,16 @@
 import { Link } from 'react-router-dom';
+import { SEO } from '../components/SEO';
 
 const ThankYou = () => {
     return (
         <section className="section-padding" style={{ minHeight: '70vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <SEO
+                title="Gracias por Contactar a Dathink"
+                description="Gracias por escribirnos. El equipo de Dathink revisara tu solicitud y se comunicara contigo pronto."
+                path="/gracias"
+                keywords={["contacto Dathink"]}
+                robots="noindex, nofollow"
+            />
             <div className="container" style={{ textAlign: 'center', maxWidth: '600px' }}>
                 <div className="glass" style={{ padding: '3rem', borderRadius: '20px', background: 'rgba(34, 197, 94, 0.08)', border: '1px solid rgba(34, 197, 94, 0.2)' }}>
                     <div style={{ fontSize: '4rem', marginBottom: '1.5rem' }}>✅</div>

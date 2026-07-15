@@ -7,7 +7,9 @@ import ServiceDetail from './pages/ServiceDetail';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import Allies from './pages/Allies';
 import ThankYou from './pages/ThankYou';
+import BlogArticle from './pages/BlogArticle';
 import { FaWhatsapp } from 'react-icons/fa';
+import { buildWhatsAppUrl } from './data/site';
 
 // Scroll to top helper
 const ScrollToTop = () => {
@@ -18,9 +20,7 @@ const ScrollToTop = () => {
   return null;
 };
 
-const WHATSAPP_NUMBER = '573151221814';
-const WHATSAPP_MESSAGE = encodeURIComponent('Hola, me gustaría obtener más información sobre los servicios de Dathink.');
-const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MESSAGE}`;
+const WHATSAPP_URL = buildWhatsAppUrl('Hola, me gustaria obtener mas informacion sobre los servicios de Dathink.');
 
 function App() {
   return (
@@ -33,6 +33,7 @@ function App() {
           <Route path="/service/:id" element={<ServiceDetail />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/allies" element={<Allies />} />
+          <Route path="/blog/:slug" element={<BlogArticle />} />
           <Route path="/gracias" element={<ThankYou />} />
         </Routes>
         <Footer />

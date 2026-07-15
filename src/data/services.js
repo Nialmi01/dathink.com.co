@@ -8,6 +8,10 @@ export const servicesData = [
     {
         id: 'custom-apps',
         title: "Aplicaciones a Medida",
+        metaTitle: "Software a Medida para Empresas en Colombia",
+        metaDescription: "Desarrollamos software a medida, aplicaciones web e integraciones para automatizar procesos empresariales en Colombia.",
+        seoTitle: "Desarrollo de software a medida",
+        keywords: ["software a medida Colombia", "desarrollo de aplicaciones web", "integracion de sistemas", "software empresarial"],
         icon: FaCode,
         desc: "Desarrollo de software web y escritorio personalizado para tus necesidades operativas.",
         longDesc: "Creamos soluciones de software robustas y escalables adaptadas específicamente a los flujos de trabajo de tu empresa. Ya sea una plataforma web compleja o una aplicación de escritorio de alto rendimiento, nuestro equipo utiliza las últimas tecnologías para garantizar seguridad, velocidad y usabilidad.",
@@ -23,6 +27,10 @@ export const servicesData = [
     {
         id: 'ai-agents',
         title: "Agentes de IA",
+        metaTitle: "Agentes de IA para Empresas en Colombia",
+        metaDescription: "Implementamos agentes de IA, chatbots inteligentes y automatizaciones conectadas a WhatsApp, CRM y sistemas internos.",
+        seoTitle: "Agentes de inteligencia artificial para empresas",
+        keywords: ["agentes de IA", "inteligencia artificial para empresas", "chatbots inteligentes", "automatizacion con IA"],
         icon: FaRobot,
         desc: "Automatización inteligente y agentes autónomos para optimizar tus procesos.",
         longDesc: "Revoluciona tu operativa con agentes de Inteligencia Artificial diseñados para trabajar por ti 24/7. Desde atención al cliente automatizada hasta análisis de datos complejos y toma de decisiones, nuestros agentes se integran perfectamente en tu ecosistema digital. Implementamos flujos de trabajo complejos (tipo n8n) para conectar todas tus Apps.",
@@ -38,6 +46,10 @@ export const servicesData = [
     {
         id: 'data-analytics',
         title: "Análisis de Datos y BI",
+        metaTitle: "Analisis de Datos y Business Intelligence en Colombia",
+        metaDescription: "Creamos dashboards BI, reportes automatizados y soluciones de analitica para tomar mejores decisiones con datos empresariales.",
+        seoTitle: "Analisis de datos y business intelligence",
+        keywords: ["business intelligence Colombia", "dashboard BI", "analisis de datos", "reportes automatizados"],
         icon: FaDatabase,
         desc: "Transformamos tus datos empresariales en reportes accionables para la toma de decisiones.",
         longDesc: "El valor de tu empresa reside en sus datos. Implementamos soluciones de Business Intelligence (BI), manejo de bases de datos y analítica avanzada para generar reportes dinámicos que te permitan visualizar KPIs en tiempo real, identificar tendencias y optimizar tu estrategia comercial.",
@@ -53,6 +65,10 @@ export const servicesData = [
     {
         id: 'digital-marketing',
         title: "Marketing Digital",
+        metaTitle: "Marketing Digital y SEO para Empresas en Colombia",
+        metaDescription: "Diseñamos estrategias de SEO, pauta digital, contenido y automatizacion de marketing para generar leads cualificados.",
+        seoTitle: "Marketing digital orientado a resultados",
+        keywords: ["marketing digital Colombia", "SEO para empresas", "generacion de leads", "publicidad digital"],
         icon: FaChartLine,
         desc: "Estrategias de crecimiento, SEO y campañas para posicionar tu marca.",
         longDesc: "Impulsa tu presencia online con estrategias de marketing orientadas a resultados. Combinamos creatividad con datos para conectar tu marca con la audiencia ideal, maximizando el retorno de inversión y generando leads cualificados.",

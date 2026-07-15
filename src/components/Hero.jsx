@@ -1,9 +1,8 @@
 import { motion } from 'framer-motion';
-import HeroBg from '../assets/hero_background.png';
+import HeroBg from '../assets/hero_background.webp';
+import { buildWhatsAppUrl } from '../data/site';
 
-const WHATSAPP_NUMBER = '573151221814';
-const WHATSAPP_MESSAGE = encodeURIComponent('Hola, me gustaría agendar una asesoría gratuita con Dathink.');
-const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MESSAGE}`;
+const WHATSAPP_URL = buildWhatsAppUrl('Hola, me gustaria agendar una asesoria gratuita con Dathink.');
 
 const stats = [
     { value: '+100', label: 'Clientes Satisfechos' },
@@ -101,7 +100,7 @@ const Hero = () => {
                         lineHeight: 1.7
                     }}>
                         Implementamos <strong style={{ color: '#fff' }}>bots de WhatsApp, agentes de IA y software a medida</strong> para
-                        que tu empresa en Colombia opere más eficiente, ahorre tiempo y escale sin límites.
+                        que tu empresa en Colombia y Medellin opere mas eficiente, ahorre tiempo y escale sin limites.
                     </p>
 
                     {/* CTAs */}
