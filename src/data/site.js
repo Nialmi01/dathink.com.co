@@ -34,6 +34,6 @@ export const organizationSchema = {
     },
     sameAs: [
         'https://www.linkedin.com/company/dathink',
-        'https://www.instagram.com/dathink',
+        'https://www.instagram.com/dathink_sas_col',
     ],
 };

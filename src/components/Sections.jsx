@@ -138,7 +138,7 @@ export const Footer = () => (
         <div style={{ display: 'flex', justifyContent: 'center', gap: '1.5rem', marginBottom: '1.5rem' }}>
             <a href="https://www.facebook.com/dathink" target="_blank" rel="noopener noreferrer" aria-label="Dathink en Facebook" style={{ color: 'var(--text-main)', fontSize: '1.5rem', transition: 'color 0.3s' }} className="hover:text-primary"><FaFacebook /></a>
             <a href="https://x.com/dathink" target="_blank" rel="noopener noreferrer" aria-label="Dathink en X" style={{ color: 'var(--text-main)', fontSize: '1.5rem', transition: 'color 0.3s' }} className="hover:text-primary"><FaTwitter /></a>
-            <a href="https://www.instagram.com/dathink" target="_blank" rel="noopener noreferrer" aria-label="Dathink en Instagram" style={{ color: 'var(--text-main)', fontSize: '1.5rem', transition: 'color 0.3s' }} className="hover:text-primary"><FaInstagram /></a>
+            <a href="https://www.instagram.com/dathink_sas_col" target="_blank" rel="noopener noreferrer" aria-label="Dathink en Instagram" style={{ color: 'var(--text-main)', fontSize: '1.5rem', transition: 'color 0.3s' }} className="hover:text-primary"><FaInstagram /></a>
             <a href="https://www.linkedin.com/company/dathink" target="_blank" rel="noopener noreferrer" aria-label="Dathink en LinkedIn" style={{ color: 'var(--text-main)', fontSize: '1.5rem', transition: 'color 0.3s' }} className="hover:text-primary"><FaLinkedin /></a>
         </div>
         <p style={{ marginBottom: '1rem' }}>&copy; {new Date().getFullYear()} Dathink. Todos los derechos reservados.</p>
