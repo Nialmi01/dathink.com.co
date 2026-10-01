@@ -1,6 +1,7 @@
 export const blogArticles = [
     {
         slug: 'automatizar-atencion-cliente-whatsapp',
+        publishedAt: '2026-07-14',
         title: 'Como automatizar la atencion al cliente con WhatsApp',
         metaTitle: 'Automatizar Atencion al Cliente con WhatsApp | Dathink',
         description:
@@ -26,6 +27,7 @@ export const blogArticles = [
     },
     {
         slug: '5-procesos-toda-empresa-deberia-automatizar',
+        publishedAt: '2026-07-14',
         title: '5 procesos que toda empresa deberia automatizar',
         metaTitle: '5 Procesos para Automatizar en una Empresa | Dathink',
         description:
@@ -51,6 +53,7 @@ export const blogArticles = [
     },
     {
         slug: 'reducir-costos-operativos-ia',
+        publishedAt: '2026-07-14',
         title: 'Como reducir costos operativos con inteligencia artificial',
         metaTitle: 'Reducir Costos Operativos con IA | Dathink',
         description:
@@ -76,6 +79,7 @@ export const blogArticles = [
     },
     {
         slug: 'software-a-medida-vs-software-generico',
+        publishedAt: '2026-07-14',
         title: 'Software a medida vs. software generico: cual conviene mas',
         metaTitle: 'Software a Medida vs Generico para PYMEs | Dathink',
         description:
@@ -101,6 +105,7 @@ export const blogArticles = [
     },
     {
         slug: 'chatbot-vs-agente-ia',
+        publishedAt: '2026-07-14',
         title: 'Chatbot basico vs. agente de IA: diferencias clave',
         metaTitle: 'Chatbot vs Agente de IA para Empresas | Dathink',
         description:
@@ -126,6 +131,7 @@ export const blogArticles = [
     },
     {
         slug: 'dashboard-bi-pymes-colombia',
+        publishedAt: '2026-07-14',
         title: 'Por que tu PYME necesita un dashboard de BI',
         metaTitle: 'Dashboard BI para PYMEs en Colombia | Dathink',
         description:

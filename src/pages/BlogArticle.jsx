@@ -3,6 +3,7 @@ import { FaArrowLeft, FaWhatsapp } from 'react-icons/fa';
 import { blogArticles, getBlogArticle } from '../data/blog';
 import { servicesData } from '../data/services';
 import { buildWhatsAppUrl } from '../data/site';
+import { formatLongDate } from '../data/seo';
 import { articleSchemaFor, breadcrumbSchemaFor } from '../data/schemas';
 import { SEO } from '../components/SEO';
 
@@ -65,6 +66,14 @@ const BlogArticle = () => {
                     }}>
                         {article.category} · {article.readTime}
                     </span>
+                    {article.publishedAt && (
+                        <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', marginBottom: '0.75rem' }}>
+                            Publicado el <time dateTime={article.publishedAt}>{formatLongDate(article.publishedAt)}</time>
+                            {article.updatedAt && article.updatedAt !== article.publishedAt && (
+                                <> · Actualizado el <time dateTime={article.updatedAt}>{formatLongDate(article.updatedAt)}</time></>
+                            )}
+                        </p>
+                    )}
                     <h1 style={{ fontSize: 'clamp(2.2rem, 5vw, 4rem)', fontWeight: '900', lineHeight: 1.08, marginBottom: '1rem' }}>
                         {article.title}
                     </h1>

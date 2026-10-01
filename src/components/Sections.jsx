@@ -32,7 +32,7 @@ export const About = () => {
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'center' }}>
 
                     <div className="glass" style={{ borderRadius: '20px', overflow: 'hidden', minHeight: '400px' }}>
-                        <img src={AboutImg} alt="Innovación Dathink" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                        <img src={AboutImg} alt="Equipo de Dathink implementando automatización e inteligencia artificial" loading="lazy" decoding="async" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                     </div>
 
                     <div>

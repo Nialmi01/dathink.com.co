@@ -1,5 +1,7 @@
 import { SITE_NAME, SITE_URL } from './site';
 
+const DEFAULT_ARTICLE_IMAGE = `${SITE_URL}/og-image.jpg`;
+
 /** BreadcrumbList reutilizable (Inicio > nivel > pagina). */
 export const breadcrumbSchemaFor = (items) => ({
     '@context': 'https://schema.org',
@@ -44,6 +46,9 @@ export const articleSchemaFor = (article) => ({
     headline: article.title,
     description: article.description,
     articleSection: article.category,
+    image: [DEFAULT_ARTICLE_IMAGE],
+    ...(article.publishedAt ? { datePublished: article.publishedAt } : {}),
+    ...(article.publishedAt ? { dateModified: article.updatedAt || article.publishedAt } : {}),
     author: {
         '@type': 'Organization',
         name: SITE_NAME,

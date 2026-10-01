@@ -58,7 +58,7 @@ let rendered = 0;
 
 for (const route of routes) {
     const head = renderHead(route, route.schemas || []);
-    const body = render(route.path);
+    const body = await render(route.path);
     const html = inject(head, body);
 
     const target = route.path === '/' ? templatePath : path.join(distDir, route.path, 'index.html');
@@ -68,6 +68,11 @@ for (const route of routes) {
     const expectedCanonical = `href="${siteUrl}${route.path}"`;
     if (!written.includes('<title>') || !written.includes(expectedCanonical)) {
         throw new Error(`El HTML prerenderizado de ${route.path} no contiene los metadatos esperados.`);
+    }
+    // Defensa contra regresiones: si una pagina se renderiza con React.lazy sin
+    // resolver, el HTML saldria con el fallback de Suspense en vez del contenido.
+    if (written.includes('Cargando contenido') || written.includes('<div id="root"></div>')) {
+        throw new Error(`El HTML de ${route.path} salio sin contenido renderizado (fallback de Suspense o root vacio).`);
     }
 
     rendered += 1;

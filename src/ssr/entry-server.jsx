@@ -1,6 +1,12 @@
 import { renderToString } from 'react-dom/server';
 import { StaticRouter } from 'react-router';
 import AppRoutes from '../AppRoutes.jsx';
+import ServiceDetail from '../pages/ServiceDetail';
+import PrivacyPolicy from '../pages/PrivacyPolicy';
+import Allies from '../pages/Allies';
+import ThankYou from '../pages/ThankYou';
+import BlogArticle from '../pages/BlogArticle';
+import NotFound from '../pages/NotFound';
 import { servicesData } from '../data/services';
 import { blogArticles } from '../data/blog';
 import { pageMeta } from '../data/pageMeta';
@@ -10,11 +16,29 @@ import { articleSchemaFor, breadcrumbSchemaFor, serviceSchemaFor, websiteSchema 
 
 export { SITE_URL as siteUrl } from '../data/site';
 
-/** Render del cuerpo de la app para una URL concreta (build-time). */
+// El cliente carga estas paginas con React.lazy; en el build las pasamos ya
+// resueltas para que el HTML estatico contenga el contenido y no el fallback.
+const eagerRouteComponents = {
+    ServiceDetail,
+    PrivacyPolicy,
+    Allies,
+    ThankYou,
+    BlogArticle,
+    NotFound,
+};
+
+/**
+ * Render del cuerpo de la app para una URL concreta (build-time).
+ *
+ * Usa renderToString con las paginas ya importadas de forma sincrona: al no
+ * quedar ningun limite de Suspense pendiente, el HTML sale con el contenido
+ * real y sin el fallback del spinner. scripts/prerender.mjs falla el build si
+ * detecta ese fallback en la salida.
+ */
 export const render = (url) =>
     renderToString(
         <StaticRouter location={url}>
-            <AppRoutes />
+            <AppRoutes components={eagerRouteComponents} />
         </StaticRouter>
     );
 

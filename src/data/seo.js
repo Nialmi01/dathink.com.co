@@ -13,6 +13,26 @@ export const escapeHtml = (value) =>
 
 export const safeJson = (value) => JSON.stringify(value).replace(/</g, '\\u003c');
 
+const MONTHS_LONG = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'];
+const MONTHS_SHORT = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'];
+
+const parseIsoDate = (iso) => {
+    const [year, month, day] = String(iso).split('-').map(Number);
+    return { year, month, day };
+};
+
+/** '2026-07-14' -> '14 de julio de 2026' */
+export const formatLongDate = (iso) => {
+    const { year, month, day } = parseIsoDate(iso);
+    return `${day} de ${MONTHS_LONG[month - 1]} de ${year}`;
+};
+
+/** '2026-07-14' -> '14 jul 2026' */
+export const formatShortDate = (iso) => {
+    const { year, month, day } = parseIsoDate(iso);
+    return `${day} ${MONTHS_SHORT[month - 1]} ${year}`;
+};
+
 /**
  * Fuente unica de verdad de los metadatos: la usan tanto el cliente (SEO.jsx)
  * como el prerender de build (src/ssr/entry-server.jsx).

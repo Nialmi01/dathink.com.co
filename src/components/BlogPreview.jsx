@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { blogArticles } from '../data/blog';
 import { buildWhatsAppUrl } from '../data/site';
+import { formatShortDate } from '../data/seo';
 
 const WHATSAPP_URL = buildWhatsAppUrl('Hola, me gustaria recibir el blog de Dathink y agendar una asesoria gratuita.');
 
@@ -36,7 +37,10 @@ export const BlogPreview = () => (
                                 color: a.color, textTransform: 'uppercase', letterSpacing: '0.08em',
                                 background: `${a.color}18`, padding: '0.25rem 0.75rem', borderRadius: '50px'
                             }}>{a.category}</span>
-                            <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>⏱ {a.readTime}</span>
+                            <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
+                                ⏱ {a.readTime}
+                                {a.publishedAt ? ` · ${formatShortDate(a.publishedAt)}` : ''}
+                            </span>
                         </div>
                         <h3 style={{ fontSize: '1.1rem', fontWeight: '700', lineHeight: 1.4, color: '#fff' }}>
                             {a.title}
