@@ -99,8 +99,9 @@ const Hero = () => {
                         color: 'var(--text-muted)',
                         lineHeight: 1.7
                     }}>
-                        Implementamos <strong style={{ color: '#fff' }}>bots de WhatsApp, agentes de IA y software a medida</strong> para
-                        que tu empresa en Colombia y Medellin opere mas eficiente, ahorre tiempo y escale sin limites.
+                        Implementamos <strong style={{ color: '#fff' }}>bots de WhatsApp, agentes de IA y software a medida</strong> que
+                        automatizan tus procesos, atienden a tus clientes 24/7 y liberan a tu equipo para vender más:
+                        opera con menos costos, gana tiempo y escala sin límites.
                     </p>
 
                     {/* CTAs */}
