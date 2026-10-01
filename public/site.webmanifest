@@ -1,0 +1,22 @@
+{
+  "name": "Dathink - Automatización e Inteligencia Artificial",
+  "short_name": "Dathink",
+  "description": "Automatización de procesos, agentes de IA, bots de WhatsApp y software a medida para empresas.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#050a14",
+  "theme_color": "#050a14",
+  "lang": "es-CO",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

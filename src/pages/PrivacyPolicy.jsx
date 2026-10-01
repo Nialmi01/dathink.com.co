@@ -1,16 +1,12 @@
 import { Link } from 'react-router-dom';
 import { FaArrowLeft } from 'react-icons/fa';
 import { SEO } from '../components/SEO';
+import { pageMeta } from '../data/pageMeta';
 
 const PrivacyPolicy = () => {
     return (
         <div style={{ paddingTop: '100px', paddingBottom: '4rem', minHeight: '100vh', background: 'var(--bg-dark)' }}>
-            <SEO
-                title="Politica de Privacidad y Tratamiento de Datos"
-                description="Politica de privacidad y tratamiento de datos personales de Dathink para clientes y visitantes en Colombia."
-                path="/privacy"
-                keywords={["politica de privacidad", "tratamiento de datos Colombia", "Dathink"]}
-            />
+            <SEO {...pageMeta.privacy} />
             <div className="container" style={{ maxWidth: '900px' }}>
                 <Link to="/" className="btn glass" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginBottom: '2rem', color: 'var(--text-muted)' }}>
                     <FaArrowLeft /> Volver al Inicio

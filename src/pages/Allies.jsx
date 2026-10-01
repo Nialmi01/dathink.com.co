@@ -1,8 +1,14 @@
-import { FaBuilding, FaAws, FaGoogle, FaMicrosoft, FaSlack } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import frutymaxLogo from '../assets/frutymax_logo.webp';
 import tecnicarLogo from '../assets/tecnicar_logo.webp';
 import { SEO } from '../components/SEO';
+import { pageMeta } from '../data/pageMeta';
+import { breadcrumbSchemaFor } from '../data/schemas';
+
+const alliesBreadcrumb = breadcrumbSchemaFor([
+    { name: 'Inicio', path: '/' },
+    { name: 'Aliados y Casos de Éxito', path: '/allies' },
+]);
 
 const Allies = () => {
     const partners = [
@@ -27,12 +33,7 @@ const Allies = () => {
 
     return (
         <div style={{ paddingTop: '80px', minHeight: '100vh' }}>
-            <SEO
-                title="Aliados y Casos de Exito de Automatizacion"
-                description="Conoce empresas que han trabajado con Dathink para digitalizar procesos, mejorar trazabilidad y optimizar operaciones."
-                path="/allies"
-                keywords={["casos de exito automatizacion", "aliados Dathink", "transformacion digital empresas"]}
-            />
+            <SEO {...pageMeta.allies} schemas={[alliesBreadcrumb]} />
             {/* Header */}
             <section className="section-padding text-center">
                 <div className="container">
@@ -60,7 +61,7 @@ const Allies = () => {
                                 whileHover={{ scale: 1.1, color: 'var(--primary)', opacity: 1 }}
                             >
                                 {typeof partner.icon === 'string' ? (
-                                    <img src={partner.icon} alt={partner.name} style={{ height: '1em', objectFit: 'contain' }} />
+                                    <img src={partner.icon} alt={`Logo de ${partner.name}, cliente de Dathink`} loading="lazy" decoding="async" style={{ height: '1em', objectFit: 'contain' }} />
                                 ) : (
                                     <partner.icon />
                                 )}

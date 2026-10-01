@@ -1,7 +1,9 @@
 import { Link, Navigate, useParams } from 'react-router-dom';
-import { FaArrowLeft } from 'react-icons/fa';
-import { getBlogArticle } from '../data/blog';
-import { SITE_URL, buildWhatsAppUrl } from '../data/site';
+import { FaArrowLeft, FaWhatsapp } from 'react-icons/fa';
+import { blogArticles, getBlogArticle } from '../data/blog';
+import { servicesData } from '../data/services';
+import { buildWhatsAppUrl } from '../data/site';
+import { articleSchemaFor, breadcrumbSchemaFor } from '../data/schemas';
 import { SEO } from '../components/SEO';
 
 const BlogArticle = () => {
@@ -14,36 +16,16 @@ const BlogArticle = () => {
 
     const path = `/blog/${article.slug}`;
     const ctaUrl = buildWhatsAppUrl(`Hola, lei el articulo "${article.title}" y quiero una asesoria con Dathink.`);
-    const articleSchema = {
-        '@context': 'https://schema.org',
-        '@type': 'Article',
-        headline: article.title,
-        description: article.description,
-        author: {
-            '@type': 'Organization',
-            name: 'Dathink',
-        },
-        publisher: {
-            '@type': 'Organization',
-            name: 'Dathink',
-            logo: {
-                '@type': 'ImageObject',
-                url: `${SITE_URL}/logo.jpg`,
-            },
-        },
-        mainEntityOfPage: `${SITE_URL}${path}`,
-        inLanguage: 'es-CO',
-    };
-
-    const breadcrumbSchema = {
-        '@context': 'https://schema.org',
-        '@type': 'BreadcrumbList',
-        itemListElement: [
-            { '@type': 'ListItem', position: 1, name: 'Inicio', item: SITE_URL },
-            { '@type': 'ListItem', position: 2, name: 'Blog', item: `${SITE_URL}/#blog` },
-            { '@type': 'ListItem', position: 3, name: article.title, item: `${SITE_URL}${path}` },
-        ],
-    };
+    const schemas = [
+        articleSchemaFor(article),
+        breadcrumbSchemaFor([
+            { name: 'Inicio', path: '/' },
+            { name: 'Blog', path: '/#blog' },
+            { name: article.title, path },
+        ]),
+    ];
+    const relatedArticles = blogArticles.filter((item) => item.slug !== article.slug).slice(0, 3);
+    const relatedService = servicesData[0];
 
     return (
         <main style={{ paddingTop: '110px', minHeight: '100vh', background: 'var(--bg-dark)' }}>
@@ -53,9 +35,17 @@ const BlogArticle = () => {
                 path={path}
                 type="article"
                 keywords={article.keywords}
-                schemas={[articleSchema, breadcrumbSchema]}
+                schemas={schemas}
             />
             <article className="container" style={{ maxWidth: '900px', paddingBottom: '5rem' }}>
+                <nav aria-label="Ruta de navegación" style={{ fontSize: '0.9rem', color: 'var(--text-muted)', marginBottom: '1.5rem' }}>
+                    <Link to="/" style={{ color: 'var(--text-muted)' }}>Inicio</Link>
+                    <span aria-hidden="true"> / </span>
+                    <Link to="/#blog" style={{ color: 'var(--text-muted)' }}>Blog</Link>
+                    <span aria-hidden="true"> / </span>
+                    <span>{article.title}</span>
+                </nav>
+
                 <Link to="/#blog" className="btn glass" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginBottom: '2rem', color: 'var(--text-muted)' }}>
                     <FaArrowLeft /> Volver al Blog
                 </Link>
@@ -92,11 +82,39 @@ const BlogArticle = () => {
                     ))}
                 </div>
 
-                <div style={{ textAlign: 'center', marginTop: '3rem' }}>
-                    <a href={ctaUrl} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
-                        Solicitar asesoria sobre este tema
-                    </a>
+                {/* CTA + enlazado interno */}
+                <div className="glass" style={{ marginTop: '3rem', padding: '2rem', borderRadius: '18px', textAlign: 'center' }}>
+                    <h2 style={{ fontSize: '1.5rem', marginBottom: '0.75rem' }}>¿Quieres aplicar esto en tu empresa?</h2>
+                    <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem' }}>
+                        Revisamos tus procesos y te proponemos una ruta de automatización por fases, sin compromiso.
+                    </p>
+                    <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+                        <a href={ctaUrl} target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
+                            <FaWhatsapp /> Asesoría gratis por WhatsApp
+                        </a>
+                        <Link to={`/service/${relatedService.id}`} className="btn glass">
+                            Ver {relatedService.title}
+                        </Link>
+                    </div>
                 </div>
+
+                <section style={{ marginTop: '3rem' }}>
+                    <h2 style={{ fontSize: '1.5rem', marginBottom: '1.25rem' }}>Sigue leyendo</h2>
+                    <ul style={{ listStyle: 'none', padding: 0, display: 'grid', gap: '0.85rem' }}>
+                        {relatedArticles.map((item) => (
+                            <li key={item.slug}>
+                                <Link to={`/blog/${item.slug}`} style={{ color: 'var(--primary)', fontWeight: '600' }}>
+                                    {item.title}
+                                </Link>
+                            </li>
+                        ))}
+                        <li>
+                            <Link to="/allies" style={{ color: 'var(--primary)', fontWeight: '600' }}>
+                                Casos de éxito de automatización
+                            </Link>
+                        </li>
+                    </ul>
+                </section>
             </article>
         </main>
     );

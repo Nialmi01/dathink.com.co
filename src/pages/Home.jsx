@@ -7,25 +7,13 @@ import { About, Contact } from '../components/Sections';
 import { FAQ } from '../components/FAQ';
 import { SEO } from '../components/SEO';
 import { faqSchema } from '../data/faq';
+import { pageMeta } from '../data/pageMeta';
+import { websiteSchema } from '../data/schemas';
 
 const Home = () => {
     return (
         <>
-            <SEO
-                title="Automatizacion de Procesos e Inteligencia Artificial para Empresas en Colombia"
-                description="Dathink ayuda a PYMEs colombianas a reducir costos y crecer con automatizacion de procesos, bots de WhatsApp, agentes de IA y software a medida."
-                path="/"
-                keywords={[
-                    'automatizacion de procesos Colombia',
-                    'inteligencia artificial para empresas',
-                    'bots WhatsApp empresas',
-                    'software a medida Colombia',
-                    'automatizacion empresarial Medellin',
-                    'agentes IA',
-                    'transformacion digital PYME',
-                ]}
-                schemas={[faqSchema]}
-            />
+            <SEO {...pageMeta.home} schemas={[websiteSchema, faqSchema]} />
             <Hero />
             <Services />
             <CaseStudies />

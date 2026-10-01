@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
 
+# Paginas sin valor de busqueda (no deben competir en resultados)
+Disallow: /gracias
+Disallow: /api/
+
 Sitemap: https://www.dathink.com.co/sitemap.xml

@@ -1,22 +1,17 @@
 import { Link } from 'react-router-dom';
 import { SEO } from '../components/SEO';
+import { pageMeta } from '../data/pageMeta';
 
 const ThankYou = () => {
     return (
         <section className="section-padding" style={{ minHeight: '70vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <SEO
-                title="Gracias por Contactar a Dathink"
-                description="Gracias por escribirnos. El equipo de Dathink revisara tu solicitud y se comunicara contigo pronto."
-                path="/gracias"
-                keywords={["contacto Dathink"]}
-                robots="noindex, nofollow"
-            />
+            <SEO {...pageMeta.gracias} />
             <div className="container" style={{ textAlign: 'center', maxWidth: '600px' }}>
                 <div className="glass" style={{ padding: '3rem', borderRadius: '20px', background: 'rgba(34, 197, 94, 0.08)', border: '1px solid rgba(34, 197, 94, 0.2)' }}>
                     <div style={{ fontSize: '4rem', marginBottom: '1.5rem' }}>✅</div>
-                    <h2 style={{ fontSize: '2rem', fontWeight: 'bold', color: '#fff', marginBottom: '1rem' }}>
+                    <h1 style={{ fontSize: '2rem', fontWeight: 'bold', color: '#fff', marginBottom: '1rem' }}>
                         ¡Mensaje Enviado Correctamente!
-                    </h2>
+                    </h1>
                     <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem', lineHeight: '1.6', marginBottom: '1.5rem' }}>
                         Gracias por contactarnos. Nuestro equipo comercial ha recibido tu mensaje
                         y se comunicará contigo muy pronto.
