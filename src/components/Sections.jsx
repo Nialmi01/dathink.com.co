@@ -7,7 +7,6 @@ import {
     FaLinkedin,
     FaInstagram,
     FaFacebook,
-    FaTwitter,
     FaBolt,
     FaShieldAlt,
     FaRocket,
@@ -15,7 +14,7 @@ import {
     FaCheckCircle,
 } from 'react-icons/fa';
 import Logo from '../assets/logo.jpg';
-import { buildWhatsAppUrl, WHATSAPP_NUMBER } from '../data/site';
+import { buildWhatsAppUrl } from '../data/site';
 
 const WHATSAPP_URL = buildWhatsAppUrl('Hola, me gustaría empezar un proyecto con Dathink.');
 
@@ -550,7 +549,7 @@ export const Footer = () => (
                     {/* Social icons */}
                     <div style={{ display: 'flex', gap: '1rem', marginTop: '1rem' }}>
                         <a
-                            href="https://www.linkedin.com/company/dathink"
+                            href="https://www.linkedin.com/company/105494935/"
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label="LinkedIn"
@@ -592,7 +591,7 @@ export const Footer = () => (
                             <FaInstagram />
                         </a>
                         <a
-                            href="https://www.facebook.com/dathink"
+                            href="https://www.facebook.com/profile.php?id=61594401025622"
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label="Facebook"
@@ -611,27 +610,6 @@ export const Footer = () => (
                             onMouseLeave={(e) => (e.currentTarget.style.color = '#fff')}
                         >
                             <FaFacebook />
-                        </a>
-                        <a
-                            href="https://x.com/dathink"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label="X"
-                            style={{
-                                width: '36px',
-                                height: '36px',
-                                borderRadius: '50%',
-                                background: 'rgba(255, 255, 255, 0.05)',
-                                border: '1px solid rgba(255, 255, 255, 0.1)',
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'center',
-                                color: '#fff',
-                            }}
-                            onMouseEnter={(e) => (e.currentTarget.style.color = '#38bdf8')}
-                            onMouseLeave={(e) => (e.currentTarget.style.color = '#fff')}
-                        >
-                            <FaTwitter />
                         </a>
                     </div>
                 </div>

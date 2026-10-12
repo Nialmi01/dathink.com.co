@@ -33,7 +33,8 @@ export const organizationSchema = {
         availableLanguage: ['Spanish'],
     },
     sameAs: [
-        'https://www.linkedin.com/company/dathink',
+        'https://www.linkedin.com/company/105494935/',
         'https://www.instagram.com/dathink_sas_col',
+        'https://www.facebook.com/profile.php?id=61594401025622',
     ],
 };
