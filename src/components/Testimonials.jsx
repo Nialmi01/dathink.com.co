@@ -1,79 +1,123 @@
+import { motion } from 'framer-motion';
+import { FaStar } from 'react-icons/fa';
+
 const testimonials = [
     {
         name: 'Carlos Mejía',
-        role: 'Gerente General',
-        company: 'Distribuidora del Valle',
-        quote: 'Gracias a los bots de WhatsApp de Dathink, redujimos el tiempo de atención al cliente en un 70%. Nuestro equipo ahora se enfoca en lo que realmente importa.',
-        avatar: '👨‍💼',
-        rating: 5,
+        role: 'Director de Operaciones',
+        company: 'DistriLog',
+        quote: 'Gracias a los bots de WhatsApp de Dathink, redujimos el tiempo de atención en un 70%. Nuestro equipo ahora se enfoca en cerrar ventas estratégicas.',
+        initials: 'CM',
+        color: '#00d4ff',
     },
     {
-        name: 'Laura Gómez',
-        role: 'Directora Comercial',
-        company: 'Grupo Inmobiliario Andino',
-        quote: 'Implementaron un sistema de automatización de seguimiento de leads que triplicó nuestras conversiones en 2 meses. El ROI fue inmediato.',
-        avatar: '👩‍💼',
-        rating: 5,
-    },
-    {
-        name: 'Andrés Torres',
+        name: 'Diana Palacios',
         role: 'CEO',
-        company: 'LogiTech Soluciones',
-        quote: 'El software a medida que desarrollaron integró todos nuestros sistemas en uno solo. Ahorramos 40 horas semanales en procesos manuales.',
-        avatar: '👨‍💻',
-        rating: 5,
+        company: 'Grupo Inmobiliario Andino',
+        quote: 'Implementaron un agente de IA que califica prospectos al instante. Duplicamos la conversión de clientes en solo dos meses de implementación.',
+        initials: 'DP',
+        color: '#a855f7',
+    },
+    {
+        name: 'Andrés Ramos',
+        role: 'COO',
+        company: 'Clínicas Salud Total',
+        quote: 'El dashboard y software a medida conectó todas nuestras áreas. Ahorramos decenas de horas semanales en tareas repetitivas.',
+        initials: 'AR',
+        color: '#22c55e',
     },
 ];
 
-const Stars = ({ count }) => (
-    <div style={{ color: '#f59e0b', fontSize: '1.1rem', marginBottom: '1rem' }}>
-        {'★'.repeat(count)}
-    </div>
-);
-
 export const Testimonials = () => (
-    <section id="testimonials" className="section-padding" style={{ background: 'rgba(0,212,255,0.02)' }}>
+    <section id="testimonials" className="section-padding">
         <div className="container">
-            <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
-                <h2 style={{ fontSize: '2.5rem', fontWeight: '800', marginBottom: '1rem' }}>
+            {/* Header */}
+            <div className="section-header">
+                <span className="section-badge">
+                    ✦ CONFIANZA Y RESULTADOS
+                </span>
+                <h2 className="section-title">
                     Lo que dicen <span className="text-gradient">Nuestros Clientes</span>
                 </h2>
-                <p style={{ color: 'var(--text-muted)', maxWidth: '550px', margin: '0 auto', fontSize: '1.1rem' }}>
-                    Empresas colombianas que ya transformaron sus operaciones con Dathink.
+                <p className="section-subtitle">
+                    Empresas que confiaron en nosotros para transformar su operación y elevar su productividad.
                 </p>
             </div>
-            <div className="grid-auto-fit">
+
+            {/* 3 Cards Grid */}
+            <div
+                style={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+                    gap: '1.75rem',
+                }}
+            >
                 {testimonials.map((t, i) => (
-                    <div key={i} className="glass" style={{
-                        padding: '2rem',
-                        borderRadius: '20px',
-                        display: 'flex',
-                        flexDirection: 'column',
-                        gap: '1rem',
-                        transition: 'transform 0.3s',
-                    }}
-                        onMouseEnter={e => e.currentTarget.style.transform = 'translateY(-6px)'}
-                        onMouseLeave={e => e.currentTarget.style.transform = 'translateY(0)'}
+                    <motion.div
+                        key={i}
+                        className="glass"
+                        whileHover={{ y: -6 }}
+                        transition={{ duration: 0.25 }}
+                        style={{
+                            padding: '2.4rem 2rem',
+                            borderRadius: '20px',
+                            background: 'rgba(12, 21, 37, 0.75)',
+                            border: '1px solid rgba(255, 255, 255, 0.08)',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            justifyContent: 'space-between',
+                            position: 'relative',
+                        }}
                     >
-                        <Stars count={t.rating} />
-                        <p style={{ color: 'var(--text-muted)', lineHeight: 1.7, fontStyle: 'italic', flex: 1 }}>
-                            "{t.quote}"
-                        </p>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginTop: '0.5rem' }}>
-                            <div style={{
-                                width: '48px', height: '48px',
-                                borderRadius: '50%',
-                                background: 'rgba(0,212,255,0.1)',
-                                border: '1px solid rgba(0,212,255,0.2)',
-                                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                fontSize: '1.5rem'
-                            }}>{t.avatar}</div>
+                        <div>
+                            {/* Star Rating */}
+                            <div style={{ display: 'flex', gap: '4px', color: '#f59e0b', fontSize: '1rem', marginBottom: '1.25rem' }}>
+                                {[...Array(5)].map((_, s) => (
+                                    <FaStar key={s} />
+                                ))}
+                            </div>
+
+                            {/* Quote text */}
+                            <p
+                                style={{
+                                    color: '#cbd5e1',
+                                    fontSize: '0.96rem',
+                                    lineHeight: 1.75,
+                                    fontStyle: 'normal',
+                                    marginBottom: '2rem',
+                                }}
+                            >
+                                "{t.quote}"
+                            </p>
+                        </div>
+
+                        {/* Author Info */}
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', borderTop: '1px solid rgba(255, 255, 255, 0.08)', paddingTop: '1.25rem' }}>
+                            <div
+                                style={{
+                                    width: '46px',
+                                    height: '46px',
+                                    borderRadius: '50%',
+                                    background: `${t.color}15`,
+                                    border: `1px solid ${t.color}40`,
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    fontSize: '0.95rem',
+                                    fontWeight: '800',
+                                    color: t.color,
+                                }}
+                            >
+                                {t.initials}
+                            </div>
                             <div>
-                                <div style={{ fontWeight: '700', color: '#fff' }}>{t.name}</div>
-                                <div style={{ fontSize: '0.85rem', color: 'var(--primary)' }}>{t.role} · {t.company}</div>
+                                <div style={{ fontWeight: '800', color: '#ffffff', fontSize: '1rem' }}>{t.name}</div>
+                                <div style={{ fontSize: '0.82rem', color: 'var(--text-muted)' }}>
+                                    {t.role} &bull; <span style={{ color: t.color }}>{t.company}</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </motion.div>
                 ))}
             </div>
         </div>

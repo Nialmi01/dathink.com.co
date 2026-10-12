@@ -1,84 +1,231 @@
+import { motion } from 'framer-motion';
+import { FaBox, FaBuilding, FaHospital, FaShoppingCart, FaExclamationTriangle, FaBolt, FaChartLine } from 'react-icons/fa';
+
 const cases = [
     {
-        industry: 'Distribución & Logística',
-        icon: '📦',
-        problem: 'Seguimiento manual de pedidos causaba errores y retrasos.',
-        solution: 'Bot de WhatsApp + integración con sistema de inventario.',
-        result: '70% menos errores, respuesta al cliente en segundos.',
-        color: '#00d4ff',
+        title: 'Distribución & Logística',
+        tag: 'LOGÍSTICA',
+        icon: FaBox,
+        iconColor: '#f59e0b',
+        problem: 'Seguimiento manual de pedidos causaba demoras, errores humanos y sobrecarga constante en atención a clientes.',
+        solution: 'Bot de WhatsApp integrado a su sistema de inventario y ERP para rastreo instantáneo y confirmación automática.',
+        result: '-70% tiempo de respuesta · Cero demoras en rastreo',
+        tagColor: '#00d4ff',
     },
     {
-        industry: 'Inmobiliaria',
-        icon: '🏠',
-        problem: 'El equipo perdía leads por falta de seguimiento rápido.',
-        solution: 'Agente de IA para calificación automática de leads 24/7.',
-        result: 'Conversión de leads +200% en 60 días.',
-        color: '#a855f7',
+        title: 'Sector Inmobiliario',
+        tag: 'INMOBILIARIA',
+        icon: FaBuilding,
+        iconColor: '#38bdf8',
+        problem: 'Pérdida continua de prospectos por demora en responder consultas en portales y redes durante fines de semana.',
+        solution: 'Agente de IA 24/7 para calificación automática, envío de fichas técnicas y agendamiento directo con asesores.',
+        result: '+200% visitas agendadas · Calificación en tiempo récord',
+        tagColor: '#a855f7',
     },
     {
-        industry: 'Salud & Clínicas',
-        icon: '🏥',
-        problem: 'Agendamiento de citas por teléfono congestionaba la recepción.',
-        solution: 'Sistema de agendamiento automático vía WhatsApp.',
-        result: '40% más citas, cero llamadas de agendamiento.',
-        color: '#22c55e',
+        title: 'Salud & Clínicas',
+        tag: 'SALUD',
+        icon: FaHospital,
+        iconColor: '#22c55e',
+        problem: 'Líneas telefónicas saturadas para agendamiento, ausentismo de pacientes y quejas por tiempos de espera.',
+        solution: 'Sistema automatizado de agendamiento, confirmación y recordatorios preventivos vía WhatsApp y SMS.',
+        result: '+40% citas efectivas · -85% llamadas a recepción',
+        tagColor: '#22c55e',
     },
     {
-        industry: 'E-commerce',
-        icon: '🛒',
-        problem: 'Reportes de ventas tardaban días en generarse manualmente.',
-        solution: 'Dashboard BI automatizado con datos en tiempo real.',
-        result: 'Reportes instantáneos, decisiones 10x más rápidas.',
-        color: '#f59e0b',
+        title: 'E-commerce Multi-Canal',
+        tag: 'E-COMMERCE',
+        icon: FaShoppingCart,
+        iconColor: '#ec4899',
+        problem: 'La sincronización manual de ventas e inventario entre plataformas provocaba quiebres de stock y reclamos.',
+        solution: 'Integración centralizada con n8n y webhooks que actualiza stock y emite reportes de venta en tiempo real.',
+        result: 'Reportes instantáneos · 100% stock sincronizado',
+        tagColor: '#00d4ff',
     },
 ];
 
 export const CaseStudies = () => (
     <section id="cases" className="section-padding">
         <div className="container">
-            <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
-                <h2 style={{ fontSize: '2.5rem', fontWeight: '800', marginBottom: '1rem' }}>
+            {/* Header */}
+            <div className="section-header">
+                <span className="section-badge">
+                    ✦ RESULTADOS COMPROBADOS
+                </span>
+                <h2 className="section-title">
                     Casos de <span className="text-gradient">Éxito Real</span>
                 </h2>
-                <p style={{ color: 'var(--text-muted)', maxWidth: '580px', margin: '0 auto', fontSize: '1.1rem' }}>
-                    Cómo ayudamos a empresas colombianas a reducir costos y aumentar resultados con automatización e IA.
+                <p className="section-subtitle">
+                    Conoce cómo ayudamos a empresas como la tuya a optimizar procesos, reducir costos y multiplicar resultados mediante automatización e IA.
                 </p>
             </div>
-            <div className="grid-auto-fit">
-                {cases.map((c, i) => (
-                    <div key={i} className="glass" style={{
-                        padding: '2rem',
-                        borderRadius: '20px',
-                        borderTop: `3px solid ${c.color}`,
-                        transition: 'transform 0.3s',
-                    }}
-                        onMouseEnter={e => e.currentTarget.style.transform = 'translateY(-6px)'}
-                        onMouseLeave={e => e.currentTarget.style.transform = 'translateY(0)'}
-                    >
-                        <div style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>{c.icon}</div>
-                        <div style={{ fontSize: '0.8rem', fontWeight: '700', color: c.color, letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '0.75rem' }}>
-                            {c.industry}
-                        </div>
-                        <div style={{ marginBottom: '0.75rem' }}>
-                            <span style={{ fontSize: '0.8rem', color: '#ef4444', fontWeight: '600' }}>⚠ PROBLEMA: </span>
-                            <span style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>{c.problem}</span>
-                        </div>
-                        <div style={{ marginBottom: '0.75rem' }}>
-                            <span style={{ fontSize: '0.8rem', color: '#00d4ff', fontWeight: '600' }}>💡 SOLUCIÓN: </span>
-                            <span style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>{c.solution}</span>
-                        </div>
-                        <div style={{
-                            marginTop: '1.25rem',
-                            padding: '0.75rem 1rem',
-                            background: `rgba(${c.color === '#00d4ff' ? '0,212,255' : c.color === '#a855f7' ? '168,85,247' : c.color === '#22c55e' ? '34,197,94' : '245,158,11'},0.08)`,
-                            borderRadius: '10px',
-                            border: `1px solid ${c.color}33`,
-                        }}>
-                            <span style={{ fontSize: '0.8rem', color: c.color, fontWeight: '700' }}>✅ RESULTADO: </span>
-                            <span style={{ color: '#fff', fontSize: '0.9rem', fontWeight: '600' }}>{c.result}</span>
-                        </div>
-                    </div>
-                ))}
+
+            {/* 2x2 Grid */}
+            <div
+                style={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(460px, 1fr))',
+                    gap: '1.75rem',
+                }}
+            >
+                {cases.map((c, i) => {
+                    const IconComponent = c.icon;
+                    return (
+                        <motion.div
+                            key={i}
+                            className="glass"
+                            whileHover={{ y: -6 }}
+                            transition={{ duration: 0.25 }}
+                            style={{
+                                padding: '2.2rem 2rem',
+                                borderRadius: '20px',
+                                background: 'rgba(12, 21, 37, 0.75)',
+                                border: '1px solid rgba(255, 255, 255, 0.08)',
+                                display: 'flex',
+                                flexDirection: 'column',
+                                justifyContent: 'space-between',
+                            }}
+                        >
+                            <div>
+                                {/* Header Row */}
+                                <div
+                                    style={{
+                                        display: 'flex',
+                                        justifyContent: 'space-between',
+                                        alignItems: 'center',
+                                        marginBottom: '1.5rem',
+                                    }}
+                                >
+                                    <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                                        <div
+                                            style={{
+                                                width: '42px',
+                                                height: '42px',
+                                                borderRadius: '12px',
+                                                background: 'rgba(255, 255, 255, 0.05)',
+                                                border: '1px solid rgba(255, 255, 255, 0.1)',
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                justifyContent: 'center',
+                                                color: c.iconColor,
+                                                fontSize: '1.2rem',
+                                            }}
+                                        >
+                                            <IconComponent />
+                                        </div>
+                                        <h3 style={{ fontSize: '1.25rem', fontWeight: '800', color: '#ffffff' }}>
+                                            {c.title}
+                                        </h3>
+                                    </div>
+                                    <span
+                                        style={{
+                                            fontSize: '0.72rem',
+                                            fontWeight: '700',
+                                            color: c.tagColor,
+                                            background: `${c.tagColor}15`,
+                                            border: `1px solid ${c.tagColor}35`,
+                                            padding: '0.3rem 0.75rem',
+                                            borderRadius: '9999px',
+                                            letterSpacing: '0.06em',
+                                        }}
+                                    >
+                                        {c.tag}
+                                    </span>
+                                </div>
+
+                                {/* Problem Block */}
+                                <div
+                                    style={{
+                                        padding: '0.9rem 1.1rem',
+                                        background: 'rgba(239, 68, 68, 0.06)',
+                                        border: '1px solid rgba(239, 68, 68, 0.15)',
+                                        borderRadius: '12px',
+                                        marginBottom: '0.9rem',
+                                    }}
+                                >
+                                    <div
+                                        style={{
+                                            fontSize: '0.75rem',
+                                            fontWeight: '800',
+                                            color: '#ef4444',
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            gap: '6px',
+                                            marginBottom: '0.35rem',
+                                            letterSpacing: '0.04em',
+                                        }}
+                                    >
+                                        <FaExclamationTriangle /> PROBLEMA
+                                    </div>
+                                    <p style={{ color: 'var(--text-muted)', fontSize: '0.88rem', lineHeight: '1.55' }}>
+                                        {c.problem}
+                                    </p>
+                                </div>
+
+                                {/* Solution Block */}
+                                <div
+                                    style={{
+                                        padding: '0.9rem 1.1rem',
+                                        background: 'rgba(0, 212, 255, 0.06)',
+                                        border: '1px solid rgba(0, 212, 255, 0.15)',
+                                        borderRadius: '12px',
+                                        marginBottom: '1.25rem',
+                                    }}
+                                >
+                                    <div
+                                        style={{
+                                            fontSize: '0.75rem',
+                                            fontWeight: '800',
+                                            color: 'var(--primary)',
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            gap: '6px',
+                                            marginBottom: '0.35rem',
+                                            letterSpacing: '0.04em',
+                                        }}
+                                    >
+                                        <FaBolt /> SOLUCIÓN
+                                    </div>
+                                    <p style={{ color: 'var(--text-muted)', fontSize: '0.88rem', lineHeight: '1.55' }}>
+                                        {c.solution}
+                                    </p>
+                                </div>
+                            </div>
+
+                            {/* Result Block */}
+                            <div
+                                style={{
+                                    padding: '0.9rem 1.1rem',
+                                    background: 'rgba(34, 197, 94, 0.08)',
+                                    border: '1px solid rgba(34, 197, 94, 0.25)',
+                                    borderRadius: '12px',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    gap: '10px',
+                                }}
+                            >
+                                <div
+                                    style={{
+                                        color: '#22c55e',
+                                        fontSize: '1.1rem',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                    }}
+                                >
+                                    <FaChartLine />
+                                </div>
+                                <div>
+                                    <div style={{ fontSize: '0.72rem', fontWeight: '800', color: '#22c55e', letterSpacing: '0.04em' }}>
+                                        RESULTADO DESTACADO
+                                    </div>
+                                    <div style={{ color: '#ffffff', fontSize: '0.92rem', fontWeight: '700', marginTop: '2px' }}>
+                                        {c.result}
+                                    </div>
+                                </div>
+                            </div>
+                        </motion.div>
+                    );
+                })}
             </div>
         </div>
     </section>

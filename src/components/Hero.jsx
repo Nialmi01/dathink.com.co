@@ -1,154 +1,209 @@
 import { motion } from 'framer-motion';
 import HeroBg from '../assets/hero_background.webp';
 import { buildWhatsAppUrl } from '../data/site';
+import { HeroDashboard } from './HeroDashboard';
+import { FaCalendarAlt, FaArrowRight } from 'react-icons/fa';
 
-const WHATSAPP_URL = buildWhatsAppUrl('Hola, me gustaria agendar una asesoria gratuita con Dathink.');
+const WHATSAPP_URL = buildWhatsAppUrl('Hola, me gustaría agendar una llamada y asesoría gratuita con Dathink.');
 
 const stats = [
-    { value: '+100', label: 'Clientes Satisfechos' },
-    { value: '80%', label: 'Reducción de Costos Operativos' },
-    { value: '24/7', label: 'Automatización Sin Parar' },
-    { value: '+5 años', label: 'Experiencia en IA' },
+    { value: '+100', label: 'CLIENTES SATISFECHOS' },
+    { value: '80%', label: 'REDUCCIÓN DE TIEMPO OPERATIVO' },
+    { value: '24/7', label: 'ATENCIÓN AUTOMATIZADA' },
+    { value: '+5 años', label: 'EXPERIENCIA EN IA' },
 ];
 
 const Hero = () => {
     return (
-        <section id="home" aria-label="Inicio" style={{
-            minHeight: '100vh',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            position: 'relative',
-            overflow: 'hidden',
-            paddingTop: '80px',
-            paddingBottom: '3rem'
-        }}>
+        <section
+            id="home"
+            aria-label="Inicio"
+            style={{
+                minHeight: '100vh',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                position: 'relative',
+                overflow: 'hidden',
+                paddingTop: '110px',
+                paddingBottom: '5rem',
+            }}
+        >
             {/* Background with overlay */}
-            <div style={{
-                position: 'absolute',
-                top: 0, left: 0, width: '100%', height: '100%',
-                backgroundImage: `url(${HeroBg})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                zIndex: -2
-            }}></div>
-            <div style={{
-                position: 'absolute',
-                top: 0, left: 0, width: '100%', height: '100%',
-                background: 'linear-gradient(to bottom, rgba(5, 10, 20, 0.85), rgba(5, 10, 20, 1))',
-                zIndex: -1
-            }}></div>
+            <div
+                style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+                    backgroundImage: `url(${HeroBg})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    opacity: 0.22,
+                    zIndex: -2,
+                }}
+            ></div>
+            <div
+                style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+                    background: 'radial-gradient(ellipse at top, rgba(5, 10, 20, 0.4) 0%, rgba(5, 10, 20, 0.98) 85%)',
+                    zIndex: -1,
+                }}
+            ></div>
 
-            {/* Decorative glows */}
-            <div style={{
-                position: 'absolute', top: '20%', left: '5%',
-                width: '400px', height: '400px',
-                background: 'var(--primary)', filter: 'blur(160px)',
-                opacity: 0.15, borderRadius: '50%', zIndex: -1
-            }}></div>
-            <div style={{
-                position: 'absolute', bottom: '10%', right: '5%',
-                width: '300px', height: '300px',
-                background: '#a855f7', filter: 'blur(130px)',
-                opacity: 0.12, borderRadius: '50%', zIndex: -1
-            }}></div>
+            {/* Ambient glows */}
+            <div
+                style={{
+                    position: 'absolute',
+                    top: '12%',
+                    left: '15%',
+                    width: '450px',
+                    height: '450px',
+                    background: 'rgba(0, 212, 255, 0.15)',
+                    filter: 'blur(160px)',
+                    borderRadius: '50%',
+                    zIndex: -1,
+                    pointerEvents: 'none',
+                }}
+            ></div>
+            <div
+                style={{
+                    position: 'absolute',
+                    top: '25%',
+                    right: '15%',
+                    width: '400px',
+                    height: '400px',
+                    background: 'rgba(168, 85, 247, 0.12)',
+                    filter: 'blur(160px)',
+                    borderRadius: '50%',
+                    zIndex: -1,
+                    pointerEvents: 'none',
+                }}
+            ></div>
 
             <div className="container" style={{ textAlign: 'center', zIndex: 1 }}>
                 <motion.div
-                    initial={{ opacity: 0, y: 40 }}
+                    initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.9 }}
+                    transition={{ duration: 0.8 }}
                 >
                     {/* Badge */}
-                    <motion.span
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: 0.2, duration: 0.5 }}
+                    <div style={{ display: 'flex', justifyContent: 'center' }}>
+                        <span className="section-badge">
+                            ✦ AUTOMATIZACIÓN INTELIGENTE PARA EMPRESAS
+                        </span>
+                    </div>
+
+                    {/* H1 Heading */}
+                    <h1
                         style={{
-                            display: 'inline-block',
-                            padding: '0.5rem 1.5rem',
-                            background: 'rgba(0, 212, 255, 0.1)',
-                            borderRadius: '50px',
-                            border: '1px solid rgba(0, 212, 255, 0.3)',
+                            fontSize: 'clamp(2.7rem, 5.5vw, 4.8rem)',
+                            fontWeight: '900',
+                            lineHeight: 1.1,
                             marginBottom: '1.5rem',
-                            color: 'var(--primary)',
-                            fontWeight: '600',
-                            fontSize: '0.9rem',
-                            letterSpacing: '0.05em'
+                            letterSpacing: '-0.025em',
+                            color: '#ffffff',
                         }}
                     >
-                        🚀 Automatización &amp; Inteligencia Artificial para PYMEs
-                    </motion.span>
-
-                    {/* H1 — Keyword: automatización de procesos Colombia */}
-                    <h1 style={{
-                        fontSize: 'clamp(2.8rem, 5.5vw, 5rem)',
-                        fontWeight: '900',
-                        lineHeight: 1.08,
-                        marginBottom: '1.5rem',
-                        letterSpacing: '-0.02em'
-                    }}>
-                        Reduce Costos y Crece <br />
-                        con <span className="text-gradient">Automatización e IA</span>
+                        Reduce Costos y Crece con <br />
+                        <span className="text-gradient">Automatización e IA</span>
                     </h1>
 
-                    <p style={{
-                        fontSize: '1.25rem',
-                        maxWidth: '680px',
-                        margin: '0 auto 2.5rem',
-                        color: 'var(--text-muted)',
-                        lineHeight: 1.7
-                    }}>
-                        Implementamos <strong style={{ color: '#fff' }}>bots de WhatsApp, agentes de IA y software a medida</strong> que
-                        automatizan tus procesos, atienden a tus clientes 24/7 y liberan a tu equipo para vender más:
-                        opera con menos costos, gana tiempo y escala sin límites.
+                    {/* Subtitle */}
+                    <p
+                        style={{
+                            fontSize: 'clamp(1.05rem, 2vw, 1.25rem)',
+                            maxWidth: '740px',
+                            margin: '0 auto 2.5rem',
+                            color: 'var(--text-muted)',
+                            lineHeight: 1.7,
+                            fontWeight: '400',
+                        }}
+                    >
+                        Implementamos <strong style={{ color: '#fff', fontWeight: '600' }}>bots de WhatsApp, agentes de IA y software a medida</strong> que
+                        automatizan tus procesos, atención a clientes 24/7 y liberan a tu equipo para vender más y cometer menos errores.
+                        Hecho a tu medida para resultados reales.
                     </p>
 
                     {/* CTAs */}
-                    <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '4rem' }}>
+                    <div
+                        style={{
+                            display: 'flex',
+                            gap: '1rem',
+                            justifyContent: 'center',
+                            flexWrap: 'wrap',
+                            marginBottom: '3.5rem',
+                        }}
+                    >
                         <a
                             href={WHATSAPP_URL}
                             target="_blank"
                             rel="noopener noreferrer"
                             id="hero-cta-asesoria"
                             className="btn btn-primary"
-                            style={{ fontSize: '1.05rem', padding: '1rem 2.5rem' }}
+                            style={{ fontSize: '1rem', padding: '0.95rem 2.2rem' }}
                         >
-                            📅 Agenda tu Asesoría Gratuita
+                            <FaCalendarAlt style={{ fontSize: '0.9rem' }} /> Agendar Llamada Gratis
                         </a>
-                        <a href="#services" className="btn glass" style={{ fontSize: '1.05rem', padding: '1rem 2.5rem' }}>
-                            Ver Nuestros Servicios
+                        <a
+                            href="#cases"
+                            className="btn btn-secondary"
+                            style={{ fontSize: '1rem', padding: '0.95rem 2.2rem' }}
+                        >
+                            Ver Casos de Éxito <FaArrowRight style={{ fontSize: '0.85rem' }} />
                         </a>
                     </div>
 
                     {/* Stats row */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.5, duration: 0.7 }}
+                    <div
                         style={{
-                            display: 'flex',
-                            justifyContent: 'center',
-                            flexWrap: 'wrap',
-                            gap: '2rem',
-                            borderTop: '1px solid var(--glass-border)',
-                            paddingTop: '2rem'
+                            display: 'grid',
+                            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+                            gap: '1.5rem',
+                            maxWidth: '960px',
+                            margin: '0 auto',
+                            padding: '1.75rem 0',
+                            borderTop: '1px solid rgba(255, 255, 255, 0.08)',
+                            borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
                         }}
                     >
                         {stats.map((stat, i) => (
                             <div key={i} style={{ textAlign: 'center' }}>
-                                <div style={{
-                                    fontSize: '2rem',
-                                    fontWeight: '800',
-                                    background: 'linear-gradient(135deg, var(--primary), #a855f7)',
-                                    WebkitBackgroundClip: 'text',
-                                    WebkitTextFillColor: 'transparent',
-                                    backgroundClip: 'text'
-                                }}>{stat.value}</div>
-                                <div style={{ color: 'var(--text-muted)', fontSize: '0.85rem', marginTop: '0.25rem' }}>{stat.label}</div>
+                                <div
+                                    style={{
+                                        fontSize: 'clamp(2rem, 3.2vw, 2.7rem)',
+                                        fontWeight: '900',
+                                        letterSpacing: '-0.02em',
+                                        background: 'linear-gradient(135deg, #00d4ff 0%, #38bdf8 60%, #818cf8 100%)',
+                                        WebkitBackgroundClip: 'text',
+                                        WebkitTextFillColor: 'transparent',
+                                    }}
+                                >
+                                    {stat.value}
+                                </div>
+                                <div
+                                    style={{
+                                        color: '#94a3b8',
+                                        fontSize: '0.78rem',
+                                        fontWeight: '700',
+                                        letterSpacing: '0.06em',
+                                        marginTop: '0.35rem',
+                                        textTransform: 'uppercase',
+                                    }}
+                                >
+                                    {stat.label}
+                                </div>
                             </div>
                         ))}
-                    </motion.div>
+                    </div>
+
+                    {/* Live System Preview Mockup */}
+                    <HeroDashboard />
                 </motion.div>
             </div>
         </section>
