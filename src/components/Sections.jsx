@@ -546,7 +546,7 @@ export const Footer = () => (
                             <FaEnvelope style={{ color: 'var(--primary)' }} /> notificaciones@dathink.com.co
                         </a>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                            <FaMapMarkerAlt style={{ color: '#a855f7' }} /> Medellín, Colombia &bull; Remoto
+                            <FaMapMarkerAlt style={{ color: '#a855f7' }} /> Bogotá, Colombia &bull; Remoto
                         </div>
                     </div>
 

@@ -19,12 +19,12 @@ export const organizationSchema = {
     address: {
         '@type': 'PostalAddress',
         addressCountry: 'CO',
-        addressRegion: 'Antioquia',
-        addressLocality: 'Medellin',
+        addressRegion: 'Bogotá D.C.',
+        addressLocality: 'Bogotá',
     },
     areaServed: [
         { '@type': 'Country', name: 'Colombia' },
-        { '@type': 'City', name: 'Medellin' },
+        { '@type': 'City', name: 'Bogotá' },
     ],
     contactPoint: {
         '@type': 'ContactPoint',

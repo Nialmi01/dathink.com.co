@@ -28,7 +28,7 @@ export const serviceSchemaFor = (service) => ({
     },
     areaServed: [
         { '@type': 'Country', name: 'Colombia' },
-        { '@type': 'City', name: 'Medellin' },
+        { '@type': 'City', name: 'Bogotá' },
     ],
     hasOfferCatalog: {
         '@type': 'OfferCatalog',
