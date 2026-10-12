@@ -538,9 +538,13 @@ export const Footer = () => (
                         >
                             <FaWhatsapp style={{ fontSize: '1.1rem' }} /> +57 (315) 122-1814
                         </a>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                            <FaEnvelope style={{ color: 'var(--primary)' }} /> contacto@dathink.com.co
-                        </div>
+                        <a
+                            href="mailto:notificaciones@dathink.com.co"
+                            style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'inherit' }}
+                            className="hover:text-primary"
+                        >
+                            <FaEnvelope style={{ color: 'var(--primary)' }} /> notificaciones@dathink.com.co
+                        </a>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                             <FaMapMarkerAlt style={{ color: '#a855f7' }} /> Medellín, Colombia &bull; Remoto
                         </div>

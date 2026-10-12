@@ -29,9 +29,11 @@ export const organizationSchema = {
     contactPoint: {
         '@type': 'ContactPoint',
         telephone: '+57-315-122-1814',
+        email: 'notificaciones@dathink.com.co',
         contactType: 'customer service',
         availableLanguage: ['Spanish'],
     },
+    email: 'notificaciones@dathink.com.co',
     sameAs: [
         'https://www.linkedin.com/company/105494935/',
         'https://www.instagram.com/dathink_sas_col',
